@@ -47,6 +47,7 @@ def make_table(data, records_key):
 
 def tidy_data(df):
     """Rename, keep and clean the columns."""
+    df = df.drop(columns=["forks", "open_issues"], errors="ignore")
     df = df.rename(columns=RENAME)
     df = df[KEEP]
     df = df.dropna(subset=MUST_HAVE)
